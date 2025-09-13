@@ -1,0 +1,37 @@
+name: db-etl
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:   # Optional: allows manual trigger from GitHub UI
+
+jobs:
+  deploy:
+    name: Deploy DAB to Databricks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Databricks CLI v2
+        run: |
+          pip install databricks-cli --upgrade
+
+      - name: Configure Databricks CLI
+        run: |
+          databricks configure --host ${{ secrets.DATABRICKS_HOST }} --token ${{ secrets.DATABRICKS_TOKEN }} --profile default --quiet
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+
+      - name: Deploy Databricks Asset Bundle
+        run: |
+          cd .bundle
+          databricks bundle deploy
