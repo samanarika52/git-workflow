@@ -1,0 +1,14 @@
+# The main pipeline for gitaction_dabs_cicd
+resources:
+  pipelines:
+    gitaction_dabs_cicd_pipeline:
+      name: gitaction_dabs_cicd_pipeline
+      catalog: dabsdatabricks
+      schema: gitaction_dabs_cicd_${bundle.target}
+      serverless: true
+      libraries:
+        - notebook:
+            path: ../src/pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
