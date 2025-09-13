@@ -5,7 +5,7 @@ spark = SparkSession.builder.getOrCreate()
 
 # Service principal credentials
 client_id = "e4cdc288-4014-4ae0-a0f3-6ad578356929"
-client_secret = "~tx8Q~gZ6jQTQIeAfFe0P8VFQUQt4gdlS_mOcaR1"
+
 tenant_id = "7544b930-a681-489d-b056-a2465753106d"
 storage_account = "dabsstorage"
 
@@ -74,7 +74,7 @@ spark = SparkSession.builder.appName("BankData").getOrCreate()
 
 # Service principal credentials
 client_id = "e4cdc288-4014-4ae0-a0f3-6ad578356929"
-client_secret = "~tx8Q~gZ6jQTQIeAfFe0P8VFQUQt4gdlS_mOcaR1"
+
 tenant_id = "7544b930-a681-489d-b056-a2465753106d"
 storage_account = "dabsstorage"
 
@@ -143,7 +143,7 @@ spark = SparkSession.builder.appName("BankData").getOrCreate()
 
 # Service principal credentials
 client_id = "e4cdc288-4014-4ae0-a0f3-6ad578356929"
-client_secret = "~tx8Q~gZ6jQTQIeAfFe0P8VFQUQt4gdlS_mOcaR1"
+
 tenant_id = "7544b930-a681-489d-b056-a2465753106d"
 storage_account = "dabsstorage"
 
